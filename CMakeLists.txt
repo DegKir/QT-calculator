@@ -14,27 +14,20 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
 
 set(TS_FILES untitled1_ru_RU.ts)
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+
 set(SRC
     ${SRC}
     main.cpp
-)
-
-set(SRC
-    ${SRC}
     widget.cpp
+    form.cpp
+    numbutton.cpp
 )
 
-set(SRC
-    ${SRC}
-    form.cpp)
-
 set (HDRS
     ${HDRS}
-    widget.h)
-
-set (HDRS
-    ${HDRS}
-    form.h)
+    form.h
+    numbutton.h)
 
 set (UIS
     ${UIS}
@@ -52,6 +45,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         form.h form.cpp form.ui
+        numbutton.h numbutton.cpp
+        operbutton.h operbutton.cpp
+
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET untitled1 APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
